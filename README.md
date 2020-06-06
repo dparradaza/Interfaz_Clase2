@@ -4,12 +4,12 @@ Interfaz gráfica con java
 
 Ventana login
 
-![Alt text](calse2.png?raw=true "calse2")
+![Alt text](Clse2/recursos/clase2.png?raw=true "calse2")
 
 
 Declaración
 
-![Alt text](declaracion.png?raw=true "declaracion")
+![Alt text](Clse2/recursos/declaracion.png?raw=true "declaracion")
 
 Ejemplificación 
 
