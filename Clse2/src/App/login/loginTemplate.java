@@ -1,8 +1,14 @@
 package App.login;
-
+/***
+ * 
+ * @author diego
+ *
+ */
 import java.awt.Color;
+import java.awt.Image;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -16,15 +22,15 @@ import javax.swing.SwingConstants;
 public class loginTemplate extends JFrame{
 
     private JPanel pDerecha, pIzquierda;
-    private JLabel lTituloApp, lEslogan, lTituloLogin, lNotificaciones;
+    private JLabel lEslogan, lNotificaciones, lUsuario,lPortada;
     private JTextField tNombreUsuario;
     private JPasswordField tClaveUsuario;
-    private JComboBox cbTipoUsuario;
+    private JComboBox<String> cbTipoUsuario;
     private JButton bEntrar, bCerrar, bRegistrarse;
     private JCheckBox checkSi, checkNo;
     private ButtonGroup grupo;
-    // private JRadioButton rbOpcion1, rbOpcion2;
-    // private JTextArea taSugerencias;
+    private ImageIcon iDimAux , iUsuario,iportada;
+
 
     public loginTemplate() {
         super("Login Usuario");
@@ -42,25 +48,30 @@ public class loginTemplate extends JFrame{
         pDerecha.setBackground(new Color(78, 115, 223));
         pDerecha.setLayout(null);
         this.add(pDerecha);
+        
+        iUsuario = new ImageIcon("../Clse2/recursos/perfil.png");
+        iDimAux = new ImageIcon(iUsuario.getImage().getScaledInstance(50, 50, Image.SCALE_AREA_AVERAGING));
 
-        lTituloApp = new JLabel("Login de Usuario");
-        lTituloApp.setBounds(100, 20, 200, 30);
-        lTituloApp.setForeground(new Color(90, 92, 105));
-        //pIzquierda.add(lTituloApp);
+        lUsuario = new JLabel();
+        lUsuario.setBounds((pDerecha.getWidth()/2)-30, 60, 60, 60);
+        lUsuario.setIcon(iDimAux);
+        pDerecha.add(lUsuario);
+       
+        iportada = new ImageIcon("../Clse2/recursos/imagen-estadistica.png");
+        iDimAux = new ImageIcon(iportada.getImage().getScaledInstance(350, 350, Image.SCALE_AREA_AVERAGING));
 
+        lPortada = new JLabel();
+        lPortada.setBounds((pDerecha.getWidth()/2)-100, 60, 360, 360);
+        lPortada.setIcon(iDimAux);
+        pIzquierda.add(lPortada);
+
+        
         lEslogan = new JLabel("Iniciar sesión");
         lEslogan.setSize(130, 20);
-        lEslogan.setLocation((pDerecha.getWidth() - lEslogan.getWidth()) / 2, 40);
+        lEslogan.setLocation((pIzquierda.getWidth() - lEslogan.getWidth()) / 2, 40);
         lEslogan.setHorizontalAlignment(SwingConstants.CENTER);
         lEslogan.setForeground(Color.DARK_GRAY);
-        pDerecha.add(lEslogan);
-
-        lTituloLogin = new JLabel("Usuario");
-        lTituloLogin.setSize(110, 30);
-        lTituloLogin.setLocation(30, 80);
-        lTituloLogin.setForeground(Color.DARK_GRAY);
-        lTituloLogin.setHorizontalAlignment(SwingConstants.CENTER);
-        pDerecha.add(lTituloLogin);
+        pIzquierda.add(lEslogan);
 
         lNotificaciones = new JLabel("¿Recordar contraseña?");
         lNotificaciones.setSize(170, 20);
@@ -86,7 +97,7 @@ public class loginTemplate extends JFrame{
         tClaveUsuario.setHorizontalAlignment(SwingConstants.CENTER);
         pDerecha.add(tClaveUsuario);
 
-        cbTipoUsuario = new JComboBox();
+        cbTipoUsuario = new JComboBox<String>();
         cbTipoUsuario.addItem("Usuario");
         cbTipoUsuario.addItem("Administrador");
         cbTipoUsuario.addItem("invitado");
@@ -99,7 +110,7 @@ public class loginTemplate extends JFrame{
 
         bEntrar = new JButton("Siguiente >");
         bEntrar.setSize(120, 45);
-        bEntrar.setLocation((pDerecha.getWidth() - bEntrar.getWidth()) / 2, 300);
+        bEntrar.setLocation((pDerecha.getWidth() - bEntrar.getWidth() / 2)-120, 300);
         bEntrar.setFocusable(false);
         bEntrar.setBackground(new Color(78, 115, 223));
         bEntrar.setForeground(Color.WHITE);
@@ -113,9 +124,9 @@ public class loginTemplate extends JFrame{
         pDerecha.add(bCerrar);
 
         bRegistrarse = new JButton("Registrarse");
-        bRegistrarse.setBounds(230, 420, 145, 35);
+        bRegistrarse.setBounds(((pDerecha.getWidth() - bEntrar.getWidth()) / 2)-80, 300,120,45);
         bRegistrarse.setFocusable(false);
-        bRegistrarse.setBackground(Color.BLUE);
+        bRegistrarse.setBackground(new Color(78, 115, 223));
         bRegistrarse.setForeground(Color.WHITE);
         pDerecha.add(bRegistrarse);
 
@@ -124,32 +135,22 @@ public class loginTemplate extends JFrame{
         checkSi = new JCheckBox("Si");
         checkSi.setSize(45, 25);
         checkSi.setFocusable(false);
-        checkSi.setBackground(Color.WHITE);
+        checkSi.setBackground(new Color(78, 115, 223));
+        checkSi.setForeground(Color.DARK_GRAY);
         checkSi.setLocation((pDerecha.getWidth() - checkSi.getWidth()) / 2 - 15, 385);
         pDerecha.add(checkSi);
 
         checkNo = new JCheckBox("No");
         checkNo.setSize(45, 25);
         checkNo.setFocusable(false);
-        checkNo.setBackground(Color.WHITE);
+        checkNo.setBackground(new Color(78, 115, 223));
+        checkNo.setForeground(Color.DARK_GRAY);
         checkNo.setLocation((pDerecha.getWidth() + checkNo.getWidth()) / 2 - 15, 385);
         pDerecha.add(checkNo);
 
         grupo = new ButtonGroup();
         grupo.add(checkSi);
         grupo.add(checkNo);
-
-        // rbOpcion1 = new JRadioButton("opcion1");
-        // rbOpcion1.setBounds(50, 400, 120, 30);
-        // pIzquierda.add(rbOpcion1);
-
-        // rbOpcion2 = new JRadioButton("opcion2");
-        // rbOpcion2.setBounds(200, 400, 120, 30);
-        // pIzquierda.add(rbOpcion2);
-
-        // taSugerencias = new JTextArea("Escribe algo...");
-        // taSugerencias.setBounds(185, 180, 230, 140);
-        // pIzquierda.add(taSugerencias);
 
         setLayout(null);
         setSize(1000, 500);
