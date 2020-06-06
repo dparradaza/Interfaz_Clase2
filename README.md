@@ -4,18 +4,18 @@ Interfaz gráfica con java
 
 Ventana login
 
-![Alt text](actividad1.png?raw=true "calse2.png")
+![Alt text](calse2.png?raw=true "calse2")
 
 
 Declaración
 
-![Alt text](actividad1b.png?raw=true "declaracion.png")
+![Alt text](declaracion.png?raw=true "declaracion")
 
 Ejemplificación 
 
-![Alt text](actividad1b.png?raw=true "ejemplificacion.png")
+![Alt text](Clse2/recursos/ejemplificacion.png?raw=true "ejemplificacion")
 
 Propiedades de la ventana
 
-![Alt text](actividad1b.png?raw=true "/Clse2/recursos/propiedades_ventana.png")
+![Alt text](/Clse2/recursos/propiedades_ventana.png?raw=true "propiedades")
 
